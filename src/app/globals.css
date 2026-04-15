@@ -31,9 +31,8 @@
 label.relative.cursor-pointer.rounded-xl.border-2.transition-all.duration-200.overflow-hidden.col-span-2.border-gray-200.hover\:border-pink-300.hover\:bg-pink-50 {
     display: none;
 }
-
 img.w-28.md\:w-48.object-contain.h-12 {
-    width: 76%;
+    width: 6rem;
 }
 
 
