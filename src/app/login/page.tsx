@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Login',
   description: 'Login to your account to buy game top-ups.',
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
 };

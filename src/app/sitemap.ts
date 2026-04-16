@@ -12,18 +12,7 @@ async function fetchProducts() {
   return res.json();
 }
 
-// // Fetch all products dynamically for the sitemap
-// async function fetchProducts() {
-//   try {
-//     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/all-products`, { next: { revalidate: 60 } });
-//     if (!res.ok) return [];
-    
-//     const data = await res.json();
-//     return data;
-//   } catch {
-//     return [];
-//   }
-// }
+
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.freefiretopupbd.com'
@@ -50,29 +39,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/login`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/register`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/forgot-password`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
+  
     ...productUrls,
   ]
 }
