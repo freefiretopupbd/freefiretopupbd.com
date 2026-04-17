@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   description: 'Premium game top-up app in Bangladesh, offering seamless and automatic Bkash, Nagad payments for Free Fire, PUBG, and more.',
-  keywords: ['topup bangladesh', 'game top up', 'free fire topup bd', 'pubg uc buy bangladesh', 'diamond topup bKash', 'instant game topup'],
+  
   authors: [{ name: 'Free Fire Top Up BD' }],
   icons: {
     icon: '/favicon.ico',

@@ -19,44 +19,33 @@ async function fetchProductDetails(code: string) {
   } catch {
     return null;
   }
-}
 
-// Dynamic metadata
-export async function generateMetadata({ params }: { params: Promise<{ code: string }> }): Promise<Metadata> {
-  const { code } = await params; // ✅ await করা হলো
+
+  
+}export async function generateMetadata(
+  { params }: { params: Promise<{ code: string }> }
+): Promise<Metadata> {
+  const { code } = await params;
+
   const product = await fetchProductDetails(code);
 
   if (!product) {
     return {
       title: 'Product Not Found',
-      description: 'The requested top-up package does not exist or is unavailable.',
+      description: 'This product is not available',
     };
   }
 
-  const title = `${product.name}`;
-  const description = `Buy ${product.name} instantly through Bkash and Nagad. Fast and reliable top up service in Bangladesh for ${product.name}.`;
-
-  let ogImageUrl = '';
-  if (product.gallery) {
-    ogImageUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/storage/products/${product.gallery}`;
-  }
-
   return {
-    title,
-    description,
-    keywords: [product.name, `${product.name} topup bangladesh`, `buy ${product.name} bkash`, 'game topup bd'],
+    title: product.meta_title || product.name,
+    description: product.meta_description || product.description,
     openGraph: {
-      title,
-      description,
-      images: ogImageUrl ? [{ url: ogImageUrl }] : [],
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.freefiretopupbd.com'}/topup/${code}`,
-      type: 'website',
+      title: product.meta_title || product.name,
+      description: product.meta_description || product.description,
     },
     twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: ogImageUrl ? [ogImageUrl] : [],
+      title: product.meta_title || product.name,
+      description: product.meta_description || product.description,
     },
   };
 }
