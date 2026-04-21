@@ -78,7 +78,7 @@ function PaymentSuccessContent() {
     } = paymentDetails;
 
     return (
-        <div className="container mx-auto px-4 py-8 md:py-12 max-w-3xl">
+        <div className="container mx-auto px-2 md:px-4 py-6 md:py-10 max-w-6xl bg-gradient-to-b from-[#070c18] via-[#0b1224] to-[#05070d] text-white">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 relative">
                 <div className="bg-gradient-to-r from-green-400 to-emerald-500 p-8 text-center text-white relative">
                     <div className="w-20 h-20 bg-white text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl shadow-lg">

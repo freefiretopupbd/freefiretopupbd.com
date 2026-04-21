@@ -11,7 +11,7 @@ export default function NoticeBanner({ notice }: { notice: any }) {
     return (
         <section className="w-full mb-6">
 
-            <div className="w-full max-w-7xl mx-auto px-6">
+            <div className="w-full max-w-7xl mx-auto ">
 
                 <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-[#0f172a] via-[#111827] to-[#0b1224] shadow-xl">
 

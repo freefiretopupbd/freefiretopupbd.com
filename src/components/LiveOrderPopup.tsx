@@ -85,7 +85,7 @@ export default function LiveOrderPopup() {
       <audio ref={audioRef} src="/sounds/notify.mp3" />
 
       {/* PREMIUM NOTIFICATION STACK */}
-      <div className="fixed bottom-6 left-6 z-[9999] space-y-3">
+      <div className="fixed bottom-6 left-1 z-[9999] space-y-3">
 
         {active.map((item, index) => (
           <div

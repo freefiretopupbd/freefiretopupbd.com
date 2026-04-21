@@ -1,6 +1,6 @@
 export default function RefundPolicyPage() {
   return (
-  <div className="min-h-screen bg-gradient-to-br from-[#070b18] via-[#0b1224] to-[#05070d] text-white px-4 py-14">
+  <div className="container mx-auto px-2 md:px-4 py-6 md:py-10 max-w-6xl bg-gradient-to-b from-[#070c18] via-[#0b1224] to-[#05070d] text-white">
 
     {/* Glow Background */}
     <div className="absolute w-[400px] h-[400px] bg-pink-500/10 blur-3xl rounded-full top-[-120px] right-[-120px]" />

@@ -146,7 +146,7 @@ const [successMessage, setSuccessMessage] = useState("");
     const { contact_info } = siteSettings;
 
     return (
-    <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10 bg-[#0b1224] text-white">
+    <div className="container mx-auto px-2 md:px-4 py-6 md:py-10 max-w-6xl bg-gradient-to-b from-[#070c18] via-[#0b1224] to-[#05070d] text-white">
 
         {/* MAIN CARD */}
         <div className="bg-[#0f172a] border border-white/10 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden">

@@ -42,7 +42,7 @@ function PaymentCancelContent() {
     }, []);
 
     return (
-        <div className="container mx-auto px-4 py-16 md:py-24 max-w-2xl">
+        <div className="container mx-auto px-2 md:px-4 py-6 md:py-10 max-w-6xl bg-gradient-to-b from-[#070c18] via-[#0b1224] to-[#05070d] text-white">
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-red-100 relative">
                 <div className="bg-gradient-to-r from-red-500 to-rose-600 p-8 text-center text-white">
                     <div className="w-24 h-24 bg-white text-red-500 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl shadow-lg border-4 border-red-200">

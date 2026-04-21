@@ -24,7 +24,7 @@ export default function ContactClient() {
   const { contact_info } = siteSettings;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10 md:py-14 text-white">
+    <div className="container mx-auto px-2 md:px-4 py-6 md:py-10 max-w-6xl bg-gradient-to-b from-[#070c18] via-[#0b1224] to-[#05070d] text-white">
 
       {/* HEADER */}
       <div className="text-center mb-12">
