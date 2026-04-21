@@ -132,7 +132,7 @@ export default function Footer() {
   </div>
 
   {/* MOBILE NAV */}
-  <nav className="fixed md:hidden bottom-0 left-0 w-full bg-slate-950 border-t border-slate-800 z-40 text-slate-400 flex justify-between px-2 pb-2 pt-2">
+  <nav className="fixed md:hidden bottom-0 left-0 w-full bg-slate-950 border-t border-slate-800 z-40 text-slate-400 flex justify-between pb-2 pt-2">
 
     <Link href="/" className="flex flex-col items-center p-2 hover:text-white transition w-full">
       <FaHome size={20} className="mb-1" />
