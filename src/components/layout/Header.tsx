@@ -65,7 +65,7 @@ export default function Header() {
         <img
           src="/src_assets/img/freefiretopupbd.png"
           alt="Logo"
-          className="w-28 md:w-40 h-15 object-contain hover:scale-105 transition"
+          className="w-20 md:w-20 h-15 object-contain hover:scale-105 transition"
         />
       </Link>
 
