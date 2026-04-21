@@ -58,12 +58,29 @@ async function fetchProducts(page: number) {
     }
 }
 
+// 🔥 IMPORTANT: no-store (live data)
+async function fetchRecentOrders() {
+    try {
+        const res = await fetch('http://127.0.0.1:8000/api/recent-orders', {
+            cache: 'no-store'
+        });
+
+        const json = await res.json();
+
+        // API direct array return করে
+        return Array.isArray(json) ? json : (json.data || []);
+    } catch {
+        return [];
+    }
+}
+
 export default async function HomePage({ searchParams }: { searchParams: { page?: string } }) {
     const params = await searchParams;
     const page = Number(params.page) || 1;
     
     const settings = await fetchSiteSettings();
     const products = await fetchProducts(page);
+    const recentOrders = await fetchRecentOrders();
 
     const mobileGames = products.filter((item: any) => {
         try {
@@ -84,7 +101,7 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
             <HomePageModal initialData={settings?.notice_popup} />
             <NoticeBanner notice={settings?.notice} />
 
-            <div className="container mx-auto">
+            <div className="container mx-auto px-6">
                 {settings?.banner_images && <HomeCarousel banners={settings.banner_images} />}
 
                 {/* Mobile Games */}
@@ -117,6 +134,64 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
                         Next <FaArrowRight />
                     </Link>
                 </div>
+                
+
+                {/* 🔥 RECENT ORDERS */}
+<div className="w-full px-3 md:px-0">
+
+<h2 className="text-center text-3xl font-extrabold my-10 text-white tracking-wide">
+    Recent Orders
+</h2>
+
+<div className="w-full max-w-7xl mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+
+    {Array.isArray(recentOrders) && recentOrders.length > 0 ? (
+
+        recentOrders.slice(0, 10).map((order: any, index: number) => (
+
+            <div
+                key={index}
+                className="relative group rounded-2xl p-[1px] bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 shadow-lg"
+            >
+
+                <div className="bg-[#0b0f1a] rounded-2xl p-5 h-full transition-all duration-300 group-hover:scale-[1.02]">
+
+                    <div className="flex items-center justify-between mb-3">
+                        <h4 className="text-white font-semibold text-lg truncate">
+                            {order.diamond}
+                        </h4>
+
+                        <span className="text-[11px] px-3 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">
+                            {order.status}
+                        </span>
+                    </div>
+
+                    <div className="flex items-center gap-2 mb-2">
+                        <div className="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></div>
+                        <p className="text-gray-300 text-sm">
+                            {order.customer_name}
+                        </p>
+                    </div>
+
+                    <p className="text-gray-400 text-sm mb-3">
+                        Player ID: <span className="text-white">{order.player_id}</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+        ))
+
+    ) : (
+        <p className="text-center text-gray-400 col-span-3">
+            No recent orders found
+        </p>
+    )}
+
+</div>
+
+</div>
 
                 {/* Download App */}
                 <div className="my-10">

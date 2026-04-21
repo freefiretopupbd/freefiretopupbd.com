@@ -128,21 +128,36 @@ export default function Header() {
           </div>
         ) : (
           <button
-            onClick={handleSidebarToggle}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full
-            bg-white/5 border border-white/10 hover:border-pink-500/30
-            hover:bg-white/10 transition"
-          >
-            <img
-              src="/src_assets/img/default.png"
-              className="w-8 h-8 rounded-full border border-white/10"
-            />
-            <span className="text-sm text-white font-medium">
-              {user?.name?.length > 12
-                ? `${user.name.substring(0, 12)}...`
-                : user.name}
-            </span>
-          </button>
+  onClick={handleSidebarToggle}
+  className="flex items-center gap-3 px-3 py-1.5 rounded-full
+  bg-white/5 border border-white/10 hover:border-pink-500/30
+  hover:bg-white/10 transition"
+>
+
+  {/* BALANCE (LEFT SIDE) */}
+  <div className="px-2 py-1 rounded-full bg-gradient-to-r from-yellow-400/20 to-orange-500/20 border border-yellow-400/30">
+    <span className="text-xs text-yellow-300 font-medium">
+      ৳ {user?.balance ?? 0}
+    </span>
+  </div>
+
+  {/* AVATAR */}
+  <div className="relative">
+    <img
+      src={
+        user?.photoURL
+          ? user.photoURL
+          : "/src_assets/img/default.png"
+      }
+      className="w-9 h-9 rounded-full border border-white/10 object-cover"
+      alt="profile"
+    />
+
+    {/* online dot */}
+    <span className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border border-[#0b1224] rounded-full"></span>
+  </div>
+
+</button>
         )}
 
       </div>
